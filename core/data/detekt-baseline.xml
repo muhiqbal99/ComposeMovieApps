@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>TooGenericExceptionCaught:GenreRepositoryImpl.kt:GenreRepositoryImpl$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MoviePagingSource.kt:MoviePagingSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MovieRepositoryImpl.kt:MovieRepositoryImpl$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:PopularMoviesPagingSource.kt:PopularMoviesPagingSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ReviewPagingSource.kt:ReviewPagingSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SearchMoviesPagingSource.kt:SearchMoviesPagingSource$e: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>

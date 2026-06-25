@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1008132370889",
+    "project_id": "movieapp-8019e",
+    "storage_bucket": "movieapp-8019e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008132370889:android:6efb08f167c6f32f63b818",
+        "android_client_info": {
+          "package_name": "com.muhiqbal.moviedb.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY2YtESXhC8oSRTtS5g7knTNT8c6-6JsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

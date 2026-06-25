@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ArgumentListWrapping:FakeMovieRepository.kt:FakeMovieRepository$(28)</ID>
+    <ID>ArgumentListWrapping:FakeMovieRepository.kt:FakeMovieRepository$(id = 1, title = "Movie 1", overview = "Overview 1", posterPath = null, backdropPath = null, voteAverage = 7.5, releaseDate = "2024-01-01", genreIds = listOf(28))</ID>
+    <ID>ArgumentListWrapping:FakeMovieRepository.kt:FakeMovieRepository$(id = 2, title = "Movie 2", overview = "Overview 2", posterPath = null, backdropPath = null, voteAverage = 8.0, releaseDate = "2024-02-01", genreIds = listOf(28))</ID>
+    <ID>MaxLineLength:FakeMovieRepository.kt:FakeMovieRepository$Movie(id = 1, title = "Movie 1", overview = "Overview 1", posterPath = null, backdropPath = null, voteAverage = 7.5, releaseDate = "2024-01-01", genreIds = listOf(28))</ID>
+    <ID>MaxLineLength:FakeMovieRepository.kt:FakeMovieRepository$Movie(id = 2, title = "Movie 2", overview = "Overview 2", posterPath = null, backdropPath = null, voteAverage = 8.0, releaseDate = "2024-02-01", genreIds = listOf(28))</ID>
+    <ID>MaxLineLength:FakeMovieRepository.kt:FakeMovieRepository$MovieDetail(id = 1, title = "Movie 1", overview = "Overview", posterPath = null, backdropPath = null, voteAverage = 7.5, voteCount = 100, releaseDate = "2024-01-01", runtime = 120, genres = emptyList(), status = "Released")</ID>
+    <ID>MaximumLineLength:FakeMovieRepository.kt:FakeMovieRepository$)</ID>
+    <ID>MaximumLineLength:FakeMovieRepository.kt:FakeMovieRepository$,</ID>
+  </CurrentIssues>
+</SmellBaseline>

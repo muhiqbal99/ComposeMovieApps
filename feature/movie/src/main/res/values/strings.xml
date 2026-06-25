@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_movie_retry">Retry</string>
+    <string name="feature_movie_back">Back</string>
+    <string name="feature_movie_overview">Overview</string>
+    <string name="feature_movie_trailer">Watch Trailer</string>
+    <string name="feature_movie_reviews">Reviews</string>
+    <string name="feature_movie_detail_tab">Detail</string>
+    <string name="feature_movie_cast_crew">Cast &amp; Crew</string>
+    <string name="feature_movie_no_reviews">No reviews yet</string>
+    <string name="feature_movie_votes">%d votes</string>
+    <string name="feature_discover_title">Discover</string>
+    <string name="feature_search_title">Search</string>
+    <string name="feature_search_hint">Search movies…</string>
+    <string name="feature_search_empty_prompt">Type a movie title to search</string>
+    <string name="feature_search_no_results">No results for "%s"</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>FinalNewline:Shape.kt:com.muhiqbal.moviedb.core.ui.theme.Shape.kt</ID>
+    <ID>NoMultipleSpaces:Color.kt: </ID>
+  </CurrentIssues>
+</SmellBaseline>

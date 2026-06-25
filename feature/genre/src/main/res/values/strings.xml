@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="genre_retry">Retry</string>
+    <string name="genre_browse_title">Browse</string>
+    <string name="genre_browse_subtitle">Movies by genre</string>
+    <string name="genre_see_more">See More</string>
+    <string name="genre_no_movies">No movies available</string>
+</resources>

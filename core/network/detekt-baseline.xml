@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>NoUnusedImports:GenreDto.kt:com.muhiqbal.moviedb.core.network.dto.GenreDto.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

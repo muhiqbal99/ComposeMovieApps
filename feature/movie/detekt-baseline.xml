@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:MovieDetailScreen.kt:@Composable private fun MovieDetailContent( movie: MovieDetail, trailer: Video?, cast: List&lt;Cast&gt;, reviews: LazyPagingItems&lt;Review&gt;, modifier: Modifier = Modifier, )</ID>
+    <ID>IfElseWrapping:MovieDetailViewModel.kt:MovieDetailViewModel$if (movieId == -1) flow { emit(PagingData.empty()) } else movieRepository.getReviews(movieId)</ID>
+    <ID>IfElseWrapping:MovieListViewModel.kt:MovieListViewModel$if (genreId == -1) flow { emit(PagingData.empty()) } else movieRepository.getMoviesByGenre(genreId)</ID>
+    <ID>IfElseWrapping:SearchViewModel.kt:SearchViewModel$if (q.isBlank()) flow { emit(PagingData.empty()) } else movieRepository.searchMovies(q)</ID>
+    <ID>ImportOrdering:MovieGraph.kt:import androidx.compose.runtime.LaunchedEffect import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel import androidx.navigation3.runtime.EntryProviderScope import androidx.navigation3.runtime.NavKey import com.muhiqbal.moviedb.feature.movie.list.MovieListRoute import com.muhiqbal.moviedb.feature.movie.list.MovieListViewModel import com.muhiqbal.moviedb.feature.movie.detail.MovieDetailRoute import com.muhiqbal.moviedb.feature.movie.detail.MovieDetailViewModel</ID>
+    <ID>LongMethod:DiscoverScreen.kt:@OptIn(ExperimentalMaterial3Api::class) @Composable fun DiscoverScreen( movies: LazyPagingItems&lt;Movie&gt;, onMovieClick: (Int) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:MovieDetailScreen.kt:@Composable private fun HeroSection( movie: MovieDetail, hasTrailer: Boolean, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:MovieDetailScreen.kt:@Composable private fun MovieDetailContent( movie: MovieDetail, trailer: Video?, cast: List&lt;Cast&gt;, reviews: LazyPagingItems&lt;Review&gt;, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:MovieListScreen.kt:@Composable internal fun MovieItem( movie: Movie, onClick: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:ReviewItem.kt:@Composable fun ReviewItem( review: Review, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:SearchScreen.kt:@OptIn(ExperimentalMaterial3Api::class) @Composable fun SearchScreen( query: String, onQueryChange: (String) -&gt; Unit, results: LazyPagingItems&lt;Movie&gt;, onMovieClick: (Int) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>MaxLineLength:MovieDetailScreen.kt:overview = "Super-assassin John Wick returns with a \$14 million price tag on his head and an army of bounty-hunting killers on his trail."</ID>
+    <ID>MaxLineLength:MovieListScreen.kt:overview = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."</ID>
+    <ID>MaxLineLength:MovieListScreen.kt:overview = "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more."</ID>
+    <ID>MaxLineLength:ReviewItem.kt:content = "A solid film with great performances. The pacing was a bit slow in the second act but overall it was worth watching."</ID>
+    <ID>MaxLineLength:ReviewItem.kt:content = "This movie was absolutely incredible! The visual effects were stunning and the story kept me on the edge of my seat throughout. Highly recommend to anyone who loves action-adventure films."</ID>
+    <ID>MaximumLineLength:MovieDetailScreen.kt:,</ID>
+    <ID>MaximumLineLength:MovieListScreen.kt:,</ID>
+    <ID>MaximumLineLength:ReviewItem.kt:,</ID>
+    <ID>MultiLineIfElse:MovieDetailViewModel.kt:MovieDetailViewModel$flow { emit(PagingData.empty()) }</ID>
+    <ID>MultiLineIfElse:MovieDetailViewModel.kt:MovieDetailViewModel$movieRepository.getReviews(movieId)</ID>
+    <ID>MultiLineIfElse:MovieListViewModel.kt:MovieListViewModel$flow { emit(PagingData.empty()) }</ID>
+    <ID>MultiLineIfElse:MovieListViewModel.kt:MovieListViewModel$movieRepository.getMoviesByGenre(genreId)</ID>
+    <ID>MultiLineIfElse:SearchViewModel.kt:SearchViewModel$flow { emit(PagingData.empty()) }</ID>
+    <ID>MultiLineIfElse:SearchViewModel.kt:SearchViewModel$movieRepository.searchMovies(q)</ID>
+    <ID>MultipleEmitters:MovieDetailScreen.kt:@Composable internal fun MovieInfoSection( movie: MovieDetail, modifier: Modifier = Modifier, )</ID>
+    <ID>NoConsecutiveBlankLines:MovieDetailScreen.kt: </ID>
+    <ID>NoConsecutiveBlankLines:MovieListScreen.kt: </ID>
+    <ID>NoUnusedImports:MovieListScreen.kt:com.muhiqbal.moviedb.feature.movie.list.MovieListScreen.kt</ID>
+    <ID>TooManyFunctions:MovieDetailScreen.kt:com.muhiqbal.moviedb.feature.movie.detail.MovieDetailScreen.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>FinalNewline:MainActivity.kt:com.muhiqbal.moviedb.MainActivity.kt</ID>
+    <ID>FinalNewline:MovieApplication.kt:com.muhiqbal.moviedb.application.MovieApplication.kt</ID>
+    <ID>LongMethod:AppNavigation.kt:@Composable fun AppNavigation(modifier: Modifier = Modifier)</ID>
+    <ID>StatementWrapping:AppNavigation.kt:&lt;no name provided&gt;${ browseBackStack.removeLastOrNull() }</ID>
+    <ID>Wrapping:AppNavigation.kt:(</ID>
+  </CurrentIssues>
+</SmellBaseline>
