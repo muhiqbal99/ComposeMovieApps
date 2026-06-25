@@ -1,0 +1,57 @@
+name: Coverage badge
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '.github/badges/**'
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coverage-main
+  cancel-in-progress: true
+
+jobs:
+  badge:
+    name: ViewModel coverage badge
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Create local.properties
+        run: echo "TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}" > local.properties
+
+      - name: Generate ViewModel coverage report
+        run: ./gradlew jacocoViewModelReport --stacktrace
+
+      - name: Generate coverage badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          jacoco-csv-file: >
+            feature/genre/build/reports/jacoco/jacocoViewModelReport/jacocoViewModelReport.csv
+            feature/movie/build/reports/jacoco/jacocoViewModelReport/jacocoViewModelReport.csv
+          badges-directory: .github/badges
+          generate-coverage-badge: true
+          coverage-badge-filename: jacoco.svg
+          coverage-label: viewmodel coverage
+
+      - name: Commit badge if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update ViewModel coverage badge [skip ci]'
+          file_pattern: .github/badges/jacoco.svg
