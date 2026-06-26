@@ -39,10 +39,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,8 +54,8 @@ import com.muhiqbal.moviedb.core.domain.model.Movie
 import com.muhiqbal.moviedb.core.ui.component.ShimmerBox
 import com.muhiqbal.moviedb.core.ui.error.errorMessageFor
 import com.muhiqbal.moviedb.core.ui.theme.RatingGold
-import com.muhiqbal.moviedb.feature.genre.R
 import com.muhiqbal.moviedb.core.ui.util.TmdbImageConfig
+import com.muhiqbal.moviedb.feature.genre.R
 import java.util.Locale
 
 @Composable
