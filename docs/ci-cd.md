@@ -48,6 +48,21 @@ Add these under **Settings → Secrets and variables → Actions**.
 3. Create a service account (IAM) with **Firebase App Distribution Admin**, download its JSON key, and paste the contents into the `FIREBASE_SERVICE_ACCOUNT` secret.
 4. Copy the Android App ID into `FIREBASE_APP_ID`.
 
+## Versioning & signing (in-place updates)
+
+For App Distribution to offer testers an **in-place update** (instead of uninstall +
+reinstall), two things must hold across builds:
+
+- **Monotonic build number** — `deploy.yml` passes `VERSION_CODE=${{ github.run_number }}`
+  to `assembleDebug`, so every distributed build has a higher `versionCode` than the last.
+  Locally `versionCode` defaults to `1` (override with `-PversionCode=N` or `VERSION_CODE`).
+  `versionName` is `1.0.0.<versionCode>` so the build number is visible to testers.
+- **Stable signing key** — the debug APK is signed with the committed
+  `keystore/debug.keystore` (password `android`, alias `androiddebugkey`). Without a fixed
+  key, each CI runner would generate a fresh debug keystore, the signature would change,
+  and Android would refuse the update. Debug keystores are not secret, so it is committed
+  (with a `!keystore/debug.keystore` exception in `.gitignore`).
+
 ## Notes
 
 - To distribute a signed **release** build instead, add a release `signingConfig` (keystore

@@ -6,13 +6,25 @@ plugins {
     alias(libs.plugins.firebase)
 }
 
+val buildNumber = (System.getenv("VERSION_CODE") ?: providers.gradleProperty("versionCode").orNull)
+    ?.toIntOrNull() ?: 1
+
 android {
     namespace = "com.muhiqbal.moviedb"
 
     defaultConfig {
         applicationId = "com.muhiqbal.moviedb"
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = buildNumber
+        versionName = "1.0.0.$buildNumber"
+    }
+
+    signingConfigs {
+        getByName("debug") {
+            storeFile = rootProject.file("keystore/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {

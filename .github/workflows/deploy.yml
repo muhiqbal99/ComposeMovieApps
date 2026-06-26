@@ -37,6 +37,8 @@ jobs:
         run: ./gradlew detekt testDebugUnitTest --stacktrace
 
       - name: Assemble debug APK
+        env:
+          VERSION_CODE: ${{ github.run_number }}
         run: ./gradlew :app:assembleDebug --stacktrace
 
       - name: Authenticate to Google Cloud
