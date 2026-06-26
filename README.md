@@ -1,6 +1,6 @@
 # MovieApp
 
-![ViewModel coverage](.github/badges/jacoco.svg)
+![ViewModel coverage](.github/badges/jacoco.svg) ![ViewModel branch coverage](.github/badges/jacoco-branches.svg)
 
 A native Android movie browser built with Kotlin and Jetpack Compose, backed by the
 [TMDB API](https://www.themoviedb.org/). Browse movies by genre, discover popular
@@ -105,15 +105,19 @@ Cross-cutting Gradle config (Android, Compose, Hilt, Detekt, lint) lives in
 ### Code coverage (JaCoCo)
 
 Coverage is intentionally scoped to **ViewModels only** — the layer holding presentation
-logic worth asserting — via the `app.jacoco` convention plugin. Generate it with:
+logic worth asserting — via the `app.jacoco` convention plugin. Every feature module
+enables unit-test coverage, and a single **unified** report aggregates them all:
 
 ```bash
 ./gradlew jacocoViewModelReport
 ```
 
-Per-module HTML/XML/CSV reports land in
-`feature/<module>/build/reports/jacoco/jacocoViewModelReport/`. The badge at the top of
-this README is regenerated and committed automatically on every push to `main` by
+This produces one merged HTML/XML/CSV report at
+`build/reports/jacoco/jacocoViewModelReport/` covering every module's ViewModels —
+currently **100% instruction and 100% branch**. Synthetic coroutine continuations
+(generated `flow {}` / suspend-lambda classes) are excluded, since their "branches" are
+compiler-generated state-machine dispatch rather than real logic. The badges at the top
+of this README are regenerated and committed automatically on every push to `main` by
 [`coverage.yml`](.github/workflows/coverage.yml).
 
 ---

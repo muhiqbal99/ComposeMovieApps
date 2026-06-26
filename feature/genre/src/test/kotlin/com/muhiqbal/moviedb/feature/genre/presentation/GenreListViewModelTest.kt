@@ -63,6 +63,16 @@ class GenreListViewModelTest {
     }
 
     @Test
+    fun `sections have empty movies when preview request fails`() = runTest(testDispatcher) {
+        fakeMovieRepository.moviePreviewResult = Result.failure(Exception("network"))
+        val viewModel = createViewModel()
+        advanceUntilIdle()
+        val success = viewModel.uiState.value as GenreUiState.Success
+        assertThat(success.sections).hasSize(3)
+        assertThat(success.sections.first().movies).isEmpty()
+    }
+
+    @Test
     fun `uiState is Error when repository fails`() = runTest(testDispatcher) {
         fakeGenreRepository.genresResult = Result.failure(Exception("Network error"))
         val viewModel = createViewModel()
