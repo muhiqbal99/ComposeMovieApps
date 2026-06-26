@@ -280,19 +280,20 @@ private fun GenreLoadingShimmer(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
         repeat(4) {
-            Column(modifier = Modifier.padding(bottom = 16.dp)) {
+            Column {
                 ShimmerBox(
                     modifier = Modifier
-                        .padding(start = 16.dp, top = 4.dp, bottom = 12.dp)
+                        .padding(start = 16.dp, bottom = 14.dp)
                         .width(140.dp)
                         .height(18.dp),
                     shape = RoundedCornerShape(4.dp),
                 )
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
                     modifier = Modifier.padding(horizontal = 16.dp),
                 ) {
                     repeat(3) {

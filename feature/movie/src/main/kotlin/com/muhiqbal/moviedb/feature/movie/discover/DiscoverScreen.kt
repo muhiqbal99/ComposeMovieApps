@@ -171,21 +171,23 @@ fun DiscoverScreen(
 
 @Composable
 private fun MovieGridShimmer(modifier: Modifier = Modifier) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        contentPadding = PaddingValues(12.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-        userScrollEnabled = false,
-        modifier = modifier.fillMaxSize(),
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(12.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        items(8) {
-            ShimmerBox(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(2f / 3f),
-                shape = RoundedCornerShape(12.dp),
-            )
+        repeat(3) {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                repeat(2) {
+                    ShimmerBox(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(2f / 3f),
+                        shape = RoundedCornerShape(12.dp),
+                    )
+                }
+            }
         }
     }
 }
