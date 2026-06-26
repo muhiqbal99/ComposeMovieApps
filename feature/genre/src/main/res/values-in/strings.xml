@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="genre_retry">Coba Lagi</string>
-    <string name="genre_browse_title">Jelajah</string>
-    <string name="genre_browse_subtitle">Film berdasarkan genre</string>
-    <string name="genre_see_more">Lihat Semua</string>
-    <string name="genre_no_movies">Tidak ada film tersedia</string>
-</resources>

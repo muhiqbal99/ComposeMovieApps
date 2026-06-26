@@ -8,6 +8,7 @@ local.properties
 
 # Log/OS Files
 *.log
+.DS_Store
 
 # Android Studio generated files and folders
 captures/
@@ -26,6 +27,9 @@ render.experimental.xml
 # Keystore files
 *.jks
 *.keystore
+# ...except the shared debug keystore, committed so every build (local + CI) signs
+# debug APKs with the same key, enabling in-place updates via App Distribution.
+!keystore/debug.keystore
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
