@@ -2,6 +2,11 @@ package com.muhiqbal.moviedb.navigation
 
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivity
+import androidx.compose.animation.ContentTransform
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -126,6 +131,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
                         rememberSaveableStateHolderNavEntryDecorator(),
                         rememberViewModelStoreNavEntryDecorator(),
                     ),
+                    transitionSpec = { simpleFade() },
+                    popTransitionSpec = { simpleFade() },
+                    predictivePopTransitionSpec = { simpleFade() },
                     entryProvider = entryProvider {
                         genreGraph(
                             navigator = object : GenreNavigator {
@@ -175,6 +183,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
                         rememberSaveableStateHolderNavEntryDecorator(),
                         rememberViewModelStoreNavEntryDecorator(),
                     ),
+                    transitionSpec = { simpleFade() },
+                    popTransitionSpec = { simpleFade() },
+                    predictivePopTransitionSpec = { simpleFade() },
                     entryProvider = entryProvider {
                         discoverGraph(
                             onMovieClick = { movieId ->
@@ -197,6 +208,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
                         rememberSaveableStateHolderNavEntryDecorator(),
                         rememberViewModelStoreNavEntryDecorator(),
                     ),
+                    transitionSpec = { simpleFade() },
+                    popTransitionSpec = { simpleFade() },
+                    predictivePopTransitionSpec = { simpleFade() },
                     entryProvider = entryProvider {
                         searchGraph(
                             onMovieClick = { movieId ->
@@ -218,6 +232,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
 fun <T> MutableList<T>.popToRoot() {
     if (size > 1) removeLastOrNull()
 }
+
+private fun simpleFade(): ContentTransform =
+    fadeIn(tween(durationMillis = 180)) togetherWith fadeOut(tween(durationMillis = 180))
 
 @Composable
 private fun navBarItemColors() = NavigationBarItemDefaults.colors(
