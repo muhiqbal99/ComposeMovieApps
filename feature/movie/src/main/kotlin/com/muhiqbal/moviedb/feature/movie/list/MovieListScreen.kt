@@ -50,6 +50,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 import com.muhiqbal.moviedb.core.domain.model.Movie
+import com.muhiqbal.moviedb.core.ui.component.ShimmerBox
 import com.muhiqbal.moviedb.core.ui.error.errorMessageFor
 import com.muhiqbal.moviedb.core.ui.theme.RatingGold
 import com.muhiqbal.moviedb.core.ui.util.TmdbImageConfig
@@ -118,10 +119,7 @@ fun MovieListScreen(
         ) {
             when {
                 movies.loadState.refresh is LoadState.Loading -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.Center),
-                        color = MaterialTheme.colorScheme.primary,
-                    )
+                    MovieListShimmer()
                 }
                 movies.loadState.refresh is LoadState.Error -> {
                     val error = (movies.loadState.refresh as LoadState.Error).error
@@ -284,6 +282,55 @@ internal fun MovieItem(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     lineHeight = MaterialTheme.typography.bodySmall.lineHeight,
                 )
+            }
+        }
+    }
+}
+
+@Composable
+internal fun MovieListShimmer(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        repeat(6) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(MaterialTheme.colorScheme.surface)
+                    .padding(12.dp),
+            ) {
+                ShimmerBox(
+                    modifier = Modifier.size(width = 90.dp, height = 135.dp),
+                    shape = RoundedCornerShape(12.dp),
+                )
+                Spacer(modifier = Modifier.width(14.dp))
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(vertical = 4.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    ShimmerBox(
+                        modifier = Modifier.fillMaxWidth(0.8f).height(18.dp),
+                        shape = RoundedCornerShape(4.dp),
+                    )
+                    ShimmerBox(
+                        modifier = Modifier.fillMaxWidth(0.4f).height(14.dp),
+                        shape = RoundedCornerShape(4.dp),
+                    )
+                    ShimmerBox(
+                        modifier = Modifier.fillMaxWidth().height(12.dp),
+                        shape = RoundedCornerShape(4.dp),
+                    )
+                    ShimmerBox(
+                        modifier = Modifier.fillMaxWidth(0.6f).height(12.dp),
+                        shape = RoundedCornerShape(4.dp),
+                    )
+                }
             }
         }
     }

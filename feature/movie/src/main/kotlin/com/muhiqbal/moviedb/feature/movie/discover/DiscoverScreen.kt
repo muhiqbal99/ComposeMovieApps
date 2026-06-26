@@ -46,6 +46,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 import com.muhiqbal.moviedb.core.domain.model.Movie
+import com.muhiqbal.moviedb.core.ui.component.ShimmerBox
 import com.muhiqbal.moviedb.core.ui.error.errorMessageFor
 import com.muhiqbal.moviedb.core.ui.theme.RatingGold
 import com.muhiqbal.moviedb.core.ui.util.TmdbImageConfig
@@ -101,10 +102,7 @@ fun DiscoverScreen(
         ) {
             when {
                 movies.loadState.refresh is LoadState.Loading && movies.itemCount == 0 -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.Center),
-                        color = MaterialTheme.colorScheme.primary,
-                    )
+                    MovieGridShimmer()
                 }
                 movies.loadState.refresh is LoadState.Error -> {
                     val error = (movies.loadState.refresh as LoadState.Error).error
@@ -165,6 +163,27 @@ fun DiscoverScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun MovieGridShimmer(modifier: Modifier = Modifier) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        userScrollEnabled = false,
+        modifier = modifier.fillMaxSize(),
+    ) {
+        items(8) {
+            ShimmerBox(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(2f / 3f),
+                shape = RoundedCornerShape(12.dp),
+            )
         }
     }
 }
