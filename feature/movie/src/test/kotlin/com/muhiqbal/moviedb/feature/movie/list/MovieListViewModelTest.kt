@@ -4,7 +4,8 @@ import com.google.common.truth.Truth.assertThat
 import com.muhiqbal.moviedb.core.testing.fake.FakeMovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -16,7 +17,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class MovieListViewModelTest {
 
-    private val testDispatcher = StandardTestDispatcher()
+    private val testDispatcher = UnconfinedTestDispatcher()
     private lateinit var fakeRepository: FakeMovieRepository
     private lateinit var viewModel: MovieListViewModel
 
@@ -54,5 +55,16 @@ class MovieListViewModelTest {
         viewModel.setGenreId(28)
         advanceUntilIdle()
         assertThat(viewModel.uiState.value).isEqualTo(stateAfterFirst)
+    }
+
+    @Test
+    fun `movies stream is produced before a genre is set`() = runTest {
+        assertThat(viewModel.movies.first()).isNotNull()
+    }
+
+    @Test
+    fun `movies stream is produced after setGenreId`() = runTest {
+        viewModel.setGenreId(28)
+        assertThat(viewModel.movies.first()).isNotNull()
     }
 }
