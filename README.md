@@ -20,8 +20,6 @@ pipeline that auto-distributes builds to Firebase App Distribution.
 - **Search** – debounced movie search.
 - **Movie detail** – backdrop hero, YouTube trailer playback, cast & crew, paged reviews,
   and a Detail/Reviews tab layout.
-- **Localized** – English and Bahasa Indonesia, for both UI strings *and* TMDB API
-  responses (the request language follows the device locale).
 
 ---
 
@@ -56,7 +54,7 @@ pipeline that auto-distributes builds to Firebase App Distribution.
   :common                # shared utilities, error types (NoConnectivityException)
   :domain                # models + repository interfaces (pure Kotlin)
   :data                  # repository impls, Paging sources, DTO→domain mappers
-  :network               # Retrofit service, OkHttp, interceptors (auth, language)
+  :network               # Retrofit service, OkHttp, auth interceptor, DTOs
   :ui                    # theme, design tokens, shared Compose helpers
   :testing               # fakes shared across module tests
 :feature

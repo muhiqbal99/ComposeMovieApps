@@ -1,7 +1,6 @@
 package com.muhiqbal.moviedb.core.network.di
 
 import com.muhiqbal.moviedb.core.network.BuildConfig
-import com.muhiqbal.moviedb.core.network.LanguageInterceptor
 import com.muhiqbal.moviedb.core.network.TmdbApiService
 import dagger.Module
 import dagger.Provides
@@ -43,11 +42,9 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(
         authInterceptor: Interceptor,
-        languageInterceptor: LanguageInterceptor,
     ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
-            .addInterceptor(languageInterceptor)
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
                     level = if (BuildConfig.DEBUG) {
