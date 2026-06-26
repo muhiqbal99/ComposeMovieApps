@@ -39,6 +39,7 @@ import com.muhiqbal.moviedb.feature.movie.R
 import com.muhiqbal.moviedb.feature.movie.list.AppendErrorItem
 import com.muhiqbal.moviedb.feature.movie.list.MovieErrorContent
 import com.muhiqbal.moviedb.feature.movie.list.MovieItem
+import com.muhiqbal.moviedb.feature.movie.list.MovieListShimmer
 
 @Composable
 fun SearchRoute(
@@ -122,10 +123,7 @@ fun SearchScreen(
                         )
                     }
                     results.loadState.refresh is LoadState.Loading -> {
-                        CircularProgressIndicator(
-                            modifier = Modifier.align(Alignment.Center),
-                            color = MaterialTheme.colorScheme.primary,
-                        )
+                        MovieListShimmer()
                     }
                     results.loadState.refresh is LoadState.Error -> {
                         val error = (results.loadState.refresh as LoadState.Error).error

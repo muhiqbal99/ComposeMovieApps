@@ -22,7 +22,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -51,6 +50,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.muhiqbal.moviedb.core.domain.model.Genre
 import com.muhiqbal.moviedb.core.domain.model.Movie
+import com.muhiqbal.moviedb.core.ui.component.ShimmerBox
 import com.muhiqbal.moviedb.core.ui.error.errorMessageFor
 import com.muhiqbal.moviedb.core.ui.theme.RatingGold
 import com.muhiqbal.moviedb.feature.genre.R
@@ -117,10 +117,7 @@ fun GenreListScreen(
         ) {
             when (uiState) {
                 is GenreUiState.Loading -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.Center),
-                        color = MaterialTheme.colorScheme.primary,
-                    )
+                    GenreLoadingShimmer()
                 }
 
                 is GenreUiState.Error -> {
@@ -271,6 +268,40 @@ private fun MovieCarouselCard(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
+            }
+        }
+    }
+}
+
+@Composable
+private fun GenreLoadingShimmer(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(vertical = 8.dp),
+    ) {
+        repeat(4) {
+            Column(modifier = Modifier.padding(bottom = 16.dp)) {
+                ShimmerBox(
+                    modifier = Modifier
+                        .padding(start = 16.dp, top = 4.dp, bottom = 12.dp)
+                        .width(140.dp)
+                        .height(18.dp),
+                    shape = RoundedCornerShape(4.dp),
+                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                ) {
+                    repeat(3) {
+                        ShimmerBox(
+                            modifier = Modifier
+                                .width(120.dp)
+                                .aspectRatio(2f / 3f),
+                            shape = RoundedCornerShape(10.dp),
+                        )
+                    }
+                }
             }
         }
     }
